@@ -1,0 +1,147 @@
+# Inciso a) Clase TDevice (Dispositivo Electrónico)
+class TDevice:
+    def __init__(self, tamaño, peso, altura, marca):
+        self.tamaño = tamaño
+        self.peso = peso
+        self.altura = altura
+        self.marca = marca
+    
+    def encender(self):
+        print("El dispositivo se ha encendido.")
+
+    def apagar(self):
+        print("El dispositivo se ha apagado.")
+
+# Inciso b) Clases descendientes de TDevice: TV, Licuadora y Celular
+class TV(TDevice):
+    def __init__(self, tamaño, peso, altura, marca, pulgadas):
+        super().__init__(tamaño, peso, altura, marca)
+        self.pulgadas = pulgadas
+    
+    def cambiar_canal(self, canal):
+        print(f"Cambiando al canal {canal}.")
+
+    def ajustar_volumen(self, volumen):
+        print(f"Ajustando el volumen a {volumen}.")
+
+class Licuadora(TDevice):
+    def licuar(self, velocidad):
+        print(f"Licuando a velocidad {velocidad}.")
+
+    def picar(self, tipo):
+        print(f"Picando {tipo}.")
+
+class Celular(TDevice):
+    def llamar(self, numero):
+        print(f"Llamando al número {numero}.")
+
+    def enviar_mensaje(self, mensaje):
+        print(f"Enviando mensaje: {mensaje}.")
+
+# Inciso c) Instancias de las clases del punto b) con diferentes valores
+tv1 = TV("Grande", "5 kg", "60 cm", "Samsung", "32")
+tv2 = TV("Pequeña", "2 kg", "40 cm", "Sony", "24")
+
+licuadora1 = Licuadora("Grande", "3 kg", "30 cm", "Oster")
+licuadora2 = Licuadora("Mediana", "2.5 kg", "25 cm", "Black&Decker")
+
+celular1 = Celular("Pequeño", "150 g", "15 cm", "Apple")
+celular2 = Celular("Mediano", "180 g", "16 cm", "Samsung")
+
+# Inciso d) Clase TPersona con 5 atributos y 5 funciones
+class TPersona:
+    def __init__(self, nombre, edad, genero, profesion, salario):
+        self.nombre = nombre
+        self.edad = edad
+        self.genero = genero
+        self.profesion = profesion
+        self.salario = salario
+    
+    def trabajar(self):
+        print(f"{self.nombre} está trabajando como {self.profesion}.")
+
+    def descansar(self):
+        print(f"{self.nombre} está descansando.")
+
+    def presentar_informe(self):
+        print(f"{self.nombre} está presentando un informe.")
+
+    def tomar_descanso(self):
+        print(f"{self.nombre} está tomando un descanso.")
+
+    def recibir_pago(self):
+        print(f"{self.nombre} recibió un pago de {self.salario}.")
+
+# Inciso e) Clases descendientes de TPersona: Policía, Administrador y Bombero
+class Policia(TPersona):
+    def __init__(self, nombre, edad, genero, profesion, salario, rango):
+        super().__init__(nombre, edad, genero, profesion, salario)
+        self.rango = rango
+    
+    def patrullar(self, zona):
+        print(f"{self.nombre}, {self.rango} de la policía, está patrullando la zona {zona}.")
+
+    def arrestar_sospechoso(self, sospechoso):
+        print(f"{self.nombre} está arrestando al sospechoso {sospechoso}.")
+
+
+class Administrador(TPersona):
+    def __init__(self, nombre, edad, genero, profesion, salario, departamento):
+        super().__init__(nombre, edad, genero, profesion, salario)
+        self.departamento = departamento
+    
+    def gestionar_proyecto(self, proyecto):
+        print(f"{self.nombre} está gestionando el proyecto {proyecto} en el departamento de {self.departamento}.")
+
+    def organizar_reunion(self, tema):
+        print(f"{self.nombre} está organizando una reunión sobre el tema {tema}.")
+
+
+class Bombero(TPersona):
+    def __init__(self, nombre, edad, genero, profesion, salario, estacion):
+        super().__init__(nombre, edad, genero, profesion, salario)
+        self.estacion = estacion
+    
+    def apagar_incendio(self, ubicacion):
+        print(f"{self.nombre} está apagando un incendio en {ubicacion}.")
+
+    def rescatar_persona(self, persona):
+        print(f"{self.nombre} está rescatando a {persona}.")
+
+# Inciso f) Instanciar 2 veces la clase del punto e)
+policia1 = Policia("John Doe", 35, "Masculino", "Policía", 60000, "Sargento")
+policia2 = Policia("Jane Smith", 30, "Femenino", "Policía", 55000, "Oficial")
+
+administrador1 = Administrador("Mark Johnson", 45, "Masculino", "Administrador", 80000, "Recursos Humanos")
+administrador2 = Administrador("Emily Davis", 40, "Femenino", "Administrador", 75000, "Finanzas")
+
+bombero1 = Bombero("Michael Brown", 40, "Masculino", "Bombero", 65000, "Estación Central")
+bombero2 = Bombero("Sophia Garcia", 35, "Femenino", "Bombero", 60000, "Estación Norte")
+
+# Inciso h) Clase Persona con los atributos nombre, edad y género, con un método presentarse
+class Persona:
+    def __init__(self, nombre, edad, genero):
+        self.nombre = nombre
+        self.edad = edad
+        self.genero = genero
+    
+    def presentarse(self):
+        print(f"Hola, me llamo {self.nombre}, tengo {self.edad} años y soy {self.genero}.")
+
+# Inciso i) Subclase Estudiante que hereda de Persona, con un atributo adicional "curso" y un método "estudiar"
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, genero, curso):
+        super().__init__(nombre, edad, genero)
+        self.curso = curso
+    
+    def estudiar(self):
+        print(f"{self.nombre} está estudiando el curso de {self.curso}.")
+
+# Inciso j) Clase Rectángulo con atributos largo y ancho, y un método área
+class Rectangulo:
+    def __init__(self, largo, ancho):
+        self.largo = largo
+        self.ancho = ancho
+    
+    def area(self):
+        return self.largo * self.ancho
